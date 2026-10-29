@@ -1,0 +1,1104 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PMS-Digital — Le numérique à portée de clic !</title>
+<meta name="description" content="Boutique de produits numériques au Sénégal. Livres PDF, modèles de CV, formations vidéo et documents professionnels. Paiement Mobile Money, téléchargement instantané.">
+<meta name="theme-color" content="#071a14">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Outfit:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#02170f;
+  --bg-2:#04241a;
+  --neon:#0dff48;
+  --neon-soft:#b9ff9d;
+  --mint:#e3f7df;
+  --white:#ffffff;
+  --ink:#03140c;
+  --muted:#a9c7b4;
+  --radius:999px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  font-family:'DM Sans',system-ui,sans-serif;
+  background:var(--bg);
+  color:var(--white);
+  line-height:1.5;
+  overflow-x:hidden;
+}
+h1,h2,h3,.brand{font-family:'Outfit','DM Sans',sans-serif}
+a{color:inherit;text-decoration:none}
+:focus-visible{outline:3px solid var(--neon);outline-offset:3px}
+
+/* ---------- Barre de navigation ---------- */
+.topbar{
+  position:sticky;top:0;z-index:50;
+  background:rgba(2,23,15,.88);
+  backdrop-filter:blur(8px);
+  border-bottom:1px solid rgba(13,255,72,.15);
+}
+.topbar-inner{
+  max-width:1200px;margin:0 auto;padding:14px 24px;
+  display:flex;align-items:center;justify-content:space-between;gap:16px;
+}
+.brand{display:flex;align-items:center;gap:10px;font-weight:700;font-size:1.25rem;letter-spacing:.2px}
+.brand-logo{
+  width:48px;height:48px;flex:none;object-fit:contain;border:1px solid rgba(163,237,120,.35);
+  border-radius:50%;background:#000;
+}
+.brand span{color:var(--neon)}
+.nav-icons{display:flex;align-items:center;gap:26px}
+.nav-icons a{display:grid;place-items:center;width:44px;height:44px;border-radius:50%;color:var(--neon);transition:background .2s}
+.nav-icons a:hover{background:rgba(13,255,72,.12)}
+.nav-icons .nav-action{
+  position:relative;display:grid;place-items:center;width:44px;height:44px;
+  border:0;border-radius:50%;background:transparent;color:var(--neon);
+  cursor:pointer;transition:background .2s,transform .2s;
+}
+.nav-icons .nav-action:hover{background:rgba(13,255,72,.12)}
+.nav-icons svg{width:30px;height:30px;fill:currentColor}
+.cart-count{
+  position:absolute;transform:translate(14px,-14px);
+  background:var(--neon);color:var(--ink);font-size:.7rem;font-weight:700;
+  min-width:18px;height:18px;border-radius:9px;display:grid;place-items:center;padding:0 4px;
+}
+.nav-links{display:none;gap:28px;font-weight:500;color:var(--muted)}
+.nav-links a:hover{color:var(--white)}
+@media(min-width:900px){.nav-links{display:flex}}
+
+/* ---------- Hero ---------- */
+.hero{
+  position:relative;isolation:isolate;
+  max-width:1000px;margin:0 auto;padding:76px 24px 86px;
+  display:grid;grid-template-columns:1fr;align-items:center;
+}
+.hero::before{
+  content:"";position:absolute;z-index:-1;inset:0 calc((100vw - 100%)/-2);
+  background:
+    linear-gradient(90deg,rgba(7,26,20,.96) 0%,rgba(7,26,20,.84) 48%,rgba(7,26,20,.42) 100%),
+    url("image/WhatsApp%20Image%202026-10-23%20at%2012.45.01.jpeg") center 42%/cover no-repeat;
+}
+.pill{
+  display:inline-flex;align-items:center;gap:8px;
+  background:var(--neon);color:var(--ink);
+  font-weight:500;font-size:1rem;
+  padding:8px 18px;border-radius:var(--radius);
+  box-shadow:0 0 0 3px var(--bg),0 0 0 4px rgba(13,255,72,.35);
+}
+.hero h1{
+  font-size:clamp(2.4rem,5.2vw,4.1rem);
+  line-height:1.08;font-weight:600;margin:22px 0 20px;
+  letter-spacing:-.5px;
+}
+.hero h1 em{font-style:normal;color:var(--neon-soft)}
+.hero p.lead{font-size:1.1rem;max-width:540px;color:#e7f3ea;letter-spacing:.3px}
+
+.cta-row{margin-top:34px;display:flex;flex-direction:column;gap:18px;align-items:flex-start}
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:10px;
+  font-family:'DM Sans',sans-serif;font-weight:700;letter-spacing:.8px;text-transform:uppercase;
+  border:0;cursor:pointer;border-radius:var(--radius);
+  transition:transform .15s ease, box-shadow .15s ease;
+}
+.btn:active{transform:translateY(2px)}
+.btn-main{
+  background:var(--neon);color:var(--ink);
+  padding:18px 42px 18px 70px;position:relative;font-size:1rem;
+  box-shadow:0 0 0 4px #04140c,0 6px 0 4px #04140c,0 0 28px rgba(13,255,72,.35);
+}
+.btn-main .hand{
+  position:absolute;left:-14px;top:50%;transform:translateY(-50%);
+  width:58px;height:58px;border-radius:50%;background:#fff;
+  display:grid;place-items:center;font-size:1.9rem;
+  box-shadow:0 0 0 4px #04140c;
+}
+.btn-main:hover{box-shadow:0 0 0 4px #04140c,0 6px 0 4px #04140c,0 0 40px rgba(13,255,72,.6)}
+.btn-row{display:flex;gap:18px;flex-wrap:wrap}
+.btn-row[hidden]{display:none}
+.btn-light,.btn-white{padding:14px 28px;font-size:.92rem;color:var(--ink);box-shadow:0 5px 0 #6ea77a}
+.btn-light{background:var(--mint)}
+.btn-white{background:var(--white)}
+.btn-light:hover,.btn-white:hover{box-shadow:0 7px 0 #6ea77a}
+
+.features{
+  margin-top:40px;display:grid;grid-template-columns:1fr 1fr;gap:26px 30px;max-width:560px;
+}
+.feature{display:flex;align-items:center;gap:14px}
+.feature .ico{
+  flex:none;width:56px;height:56px;border-radius:50%;background:var(--white);
+  display:grid;place-items:center;color:#14a83a;
+}
+.feature .ico svg{width:30px;height:30px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.feature b{display:block;font-size:.95rem}
+.feature small{display:block;font-size:.78rem;font-weight:700;color:#d9e8dd}
+
+/* ---------- Sections ---------- */
+section{max-width:1200px;margin:0 auto;padding:72px 24px}
+section h2{font-size:clamp(1.8rem,3.6vw,2.6rem);font-weight:600;margin-bottom:10px}
+section h2 em{font-style:normal;color:var(--neon-soft)}
+.sub{color:var(--muted);max-width:560px;margin-bottom:36px}
+
+.cats{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:22px}
+.cat{
+  background:var(--bg-2);border:1px solid rgba(13,255,72,.22);border-radius:22px;padding:26px;
+  display:flex;flex-direction:column;gap:12px;transition:border-color .2s,transform .2s;
+}
+.cat:hover{border-color:var(--neon);transform:translateY(-4px)}
+.cat .ico{font-size:2rem;width:60px;height:60px;border-radius:50%;background:var(--neon);color:var(--ink);display:grid;place-items:center}
+.cat h3{font-size:1.2rem}
+.cat p{color:var(--muted);font-size:.95rem}
+.cat a{margin-top:auto;font-weight:700;color:var(--neon)}
+
+.products{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:22px}
+.product-search{
+  display:block;width:min(100%,520px);margin:0 0 12px;padding:13px 16px;
+  border:1px solid rgba(199,245,168,.2);border-radius:12px;
+  background:#071a14;color:var(--white);font:inherit;
+}
+.product-search::placeholder{color:var(--muted)}
+.product-search:focus-visible{outline:3px solid var(--neon);outline-offset:3px}
+.product-search-status{min-height:1.5em;margin:0 0 18px;color:var(--muted);font-size:.9rem}
+.product-search-empty{grid-column:1/-1;color:var(--muted)}
+.sr-only{
+  position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;
+  clip:rect(0,0,0,0);white-space:nowrap;border:0;
+}
+.catalog-stats{
+  max-width:1200px;margin:0 auto;padding:24px;
+}
+.catalog-stats-card{
+  padding:clamp(24px,5vw,48px);border:1px solid rgba(199,245,168,.14);
+  border-radius:24px;background:linear-gradient(145deg,rgba(16,44,32,.96),rgba(7,26,20,.96));
+  box-shadow:0 18px 48px rgba(0,0,0,.18);
+}
+.catalog-stats-card h2{margin-bottom:8px;font-size:clamp(1.6rem,3vw,2.2rem)}
+.catalog-stats-card>p{margin-bottom:28px;color:var(--muted)}
+.catalog-chart{display:grid;gap:18px}
+.catalog-chart-row{display:grid;grid-template-columns:minmax(100px,160px) 1fr 36px;align-items:center;gap:14px}
+.catalog-chart-label{font-weight:600}
+.catalog-chart-track{height:14px;overflow:hidden;border-radius:999px;background:rgba(255,255,255,.08)}
+.catalog-chart-bar{
+  width:var(--bar-width);height:100%;border-radius:inherit;
+  background:linear-gradient(90deg,#79dc68,var(--neon-soft));
+  transform-origin:left;animation:chart-grow .8s ease-out both;
+}
+.catalog-chart-value{text-align:right;font-weight:700;color:var(--neon-soft)}
+@keyframes chart-grow{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+@media(max-width:480px){
+  .catalog-stats{padding:16px}
+  .catalog-chart-row{grid-template-columns:92px 1fr 28px;gap:9px;font-size:.88rem}
+}
+@media(prefers-reduced-motion:reduce){.catalog-chart-bar{animation:none}}
+.product{background:var(--bg-2);border-radius:22px;overflow:hidden;border:1px solid rgba(255,255,255,.06)}
+.product .thumb{
+  position:relative;height:184px;display:grid;place-items:center;font-size:3rem;
+  border:0;padding:0;width:100%;overflow:hidden;cursor:pointer;color:var(--neon-soft);
+  background:linear-gradient(135deg,#0b3a26,#0dff48 220%);
+}
+.product .thumb img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.product .thumb:after{
+  content:"";position:absolute;inset:0;
+  background:linear-gradient(180deg,rgba(4,17,11,.02),rgba(4,17,11,.48));
+}
+.product .thumb .thumb-icon{position:relative;z-index:1;filter:drop-shadow(0 3px 12px rgba(0,0,0,.4))}
+.product .body{padding:18px;display:flex;flex-direction:column;gap:8px}
+.product h3{font-size:1.05rem}
+.price{font-weight:700;color:var(--neon);font-size:1.1rem}
+.product button{
+  margin-top:6px;border:0;cursor:pointer;background:var(--neon);color:var(--ink);
+  font-weight:700;padding:12px;border-radius:var(--radius);font-family:inherit;
+}
+.product button:hover{filter:brightness(1.1)}
+.modal{
+  width:min(560px,calc(100% - 28px));max-height:min(82vh,760px);margin:auto;
+  padding:0;border:1px solid rgba(199,245,168,.2);border-radius:24px;
+  color:#fff;background:#0d261d;box-shadow:0 24px 80px rgba(0,0,0,.55);
+}
+.modal::backdrop{background:rgba(2,12,8,.78);backdrop-filter:blur(5px)}
+.modal-inner{padding:26px;overflow:auto;max-height:min(82vh,760px)}
+.modal-head{display:flex;align-items:flex-start;justify-content:space-between;gap:16px;margin-bottom:18px}
+.modal-head h2{font-size:1.55rem;line-height:1.25}
+.modal-close{
+  flex:none;width:38px;height:38px;border:1px solid rgba(255,255,255,.14);
+  border-radius:50%;background:transparent;color:#fff;font-size:1.3rem;cursor:pointer;
+}
+.modal-copy{color:var(--muted);margin:0 0 18px}
+.modal-form{display:grid;gap:14px}
+.modal-form label{display:grid;gap:6px;color:#dce9df;font-weight:600;font-size:.92rem}
+.modal-form input,.modal-form select{
+  width:100%;padding:12px 14px;border:1px solid rgba(199,245,168,.2);
+  border-radius:12px;background:#071a14;color:#fff;font:inherit;
+}
+.password-field{position:relative;display:block}
+.password-field input{padding-right:52px}
+.password-toggle{
+  position:absolute;top:50%;right:6px;transform:translateY(-50%);
+  display:grid;place-items:center;width:40px;height:40px;border:0;border-radius:8px;
+  background:transparent;color:var(--muted);cursor:pointer;
+}
+.password-toggle:hover{color:var(--neon-soft);background:rgba(255,255,255,.06)}
+.password-toggle svg{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.modal-form .btn{width:100%;padding:13px 20px;background:var(--neon);color:var(--ink)}
+.modal-link{display:block;margin-top:16px;color:var(--neon-soft);text-align:center;font-weight:700}
+.modal-link[data-auth-switch]{
+  padding:10px 16px;border-radius:999px;background:var(--white);color:var(--ink);
+}
+.share-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.share-option,.share-action{
+  display:flex;align-items:center;gap:12px;min-height:56px;padding:10px 12px;
+  border:1px solid rgba(199,245,168,.16);border-radius:8px;
+  background:rgba(255,255,255,.035);color:#fff;text-align:left;
+  font:600 .94rem 'DM Sans',sans-serif;cursor:pointer;
+}
+.share-option:hover,.share-action:hover{background:rgba(199,245,168,.1);border-color:rgba(199,245,168,.35)}
+.share-icon{display:grid;place-items:center;flex:none;width:34px;height:34px;border-radius:50%;background:var(--share-accent);color:#fff;font-weight:700}
+.share-icon svg{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.share-icon .share-letter{font-size:1.2rem;font-family:Arial,sans-serif}
+.share-note{margin-top:12px;color:var(--muted);font-size:.84rem}
+.share-actions{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:16px}
+.share-action{justify-content:center;background:var(--neon);color:var(--ink)}
+@media(max-width:420px){.share-grid{grid-template-columns:1fr}.share-actions{grid-template-columns:1fr}}
+.variant-list,.cart-list,.orders-list{display:grid;gap:10px}
+.variant,.cart-line,.order-card{
+  display:flex;align-items:center;justify-content:space-between;gap:14px;
+  padding:14px;border:1px solid rgba(199,245,168,.12);border-radius:14px;
+  background:rgba(255,255,255,.025);
+}
+.variant h3,.order-card h3{font-size:1rem}
+.variant p,.order-card p{color:var(--muted);font-size:.87rem;margin-top:3px}
+.variant button,.cart-line button,.modal-primary{
+  flex:none;border:0;border-radius:999px;background:var(--neon);color:var(--ink);
+  padding:10px 14px;font:700 .88rem 'DM Sans',sans-serif;cursor:pointer;
+}
+.cart-line button{background:transparent;border:1px solid rgba(255,255,255,.18);color:#fff}
+.modal-total{display:flex;justify-content:space-between;margin:20px 0;font-weight:700}
+.modal-primary{width:100%;padding:14px}
+.menu-popover{
+  position:absolute;right:max(20px,calc((100vw - 1200px)/2));top:calc(100% + 8px);
+  z-index:60;width:min(280px,calc(100vw - 32px));padding:10px;
+  border:1px solid rgba(199,245,168,.18);border-radius:16px;
+  background:#0d261d;box-shadow:0 16px 40px rgba(0,0,0,.38);
+}
+.menu-popover[hidden]{display:none}
+.menu-popover button{
+  width:100%;padding:12px;text-align:left;border:0;border-radius:10px;
+  background:transparent;color:#e8f4e9;font:600 .94rem 'DM Sans',sans-serif;cursor:pointer;
+}
+.menu-popover button:hover{background:rgba(163,237,120,.1)}
+.menu-popover button:last-child{color:#ffb5a8}
+
+.pay{display:flex;flex-wrap:wrap;gap:12px}
+.pay span{background:var(--mint);color:var(--ink);font-weight:700;padding:10px 20px;border-radius:var(--radius)}
+
+footer{border-top:1px solid rgba(13,255,72,.18);background:#01110a}
+.foot{
+  max-width:1200px;margin:0 auto;padding:40px 24px;
+  display:flex;flex-wrap:wrap;gap:28px;justify-content:space-between;color:var(--muted);font-size:.95rem;
+}
+.foot b{color:var(--white);display:block;margin-bottom:6px}
+.foot address{margin-top:8px;font-style:normal}
+.copy{text-align:center;padding:16px;font-size:.82rem;color:#6f917d;border-top:1px solid rgba(255,255,255,.05)}
+.social-links{display:flex;gap:12px;margin-top:12px}
+.social-links a{
+  display:grid;place-items:center;width:42px;height:42px;border:1px solid rgba(255,255,255,.18);
+  border-radius:50%;color:var(--white);transition:background .2s,transform .2s;
+}
+.social-links a:hover{background:rgba(13,255,72,.12);transform:translateY(-2px)}
+.social-links svg{width:21px;height:21px;fill:currentColor}
+.whatsapp-button{
+  position:fixed;right:24px;bottom:24px;z-index:80;
+  display:inline-flex;align-items:center;gap:10px;padding:13px 18px;
+  border:1px solid rgba(255,255,255,.2);border-radius:999px;
+  background:#25d366;color:#062b16;font-weight:700;
+  box-shadow:0 10px 28px rgba(0,0,0,.32);
+  transition:transform .2s ease,box-shadow .2s ease;
+}
+.whatsapp-button:hover{transform:translateY(-3px);box-shadow:0 14px 32px rgba(0,0,0,.38)}
+.whatsapp-button svg{width:24px;height:24px;fill:currentColor}
+@media(max-width:600px){
+  .whatsapp-button{right:16px;bottom:16px;padding:12px;border-radius:50%}
+  .whatsapp-button span{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+}
+
+.toast{
+  position:fixed;left:50%;bottom:24px;transform:translate(-50%,120px);
+  background:var(--neon);color:var(--ink);font-weight:700;padding:12px 22px;border-radius:var(--radius);
+  transition:transform .25s ease;z-index:100;
+}
+.toast.show{transform:translate(-50%,0)}
+
+/* ---------- Mobile ---------- */
+@media(max-width:900px){
+  .hero{padding-top:52px}
+}
+@media(max-width:480px){
+  .features{grid-template-columns:1fr}
+  .nav-icons{gap:6px}
+}
+@media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+
+/* ---------- Finition visuelle ---------- */
+:root{
+  --bg:#071a14;
+  --bg-2:#0d261d;
+  --neon:#a3ed78;
+  --neon-soft:#c7f5a8;
+  --mint:#e7f4df;
+  --ink:#102319;
+  --muted:#b3c9ba;
+}
+body{
+  background:
+    radial-gradient(ellipse at 86% 12%,rgba(51,112,71,.16),transparent 30rem),
+    var(--bg);
+}
+.topbar{
+  background:rgba(7,26,20,.88);
+  border-bottom-color:rgba(199,245,168,.12);
+}
+.topbar-inner{min-height:76px}
+.brand{font-size:1.4rem;letter-spacing:-.4px}
+.brand span,.nav-icons a{color:var(--neon-soft)}
+.nav-links{font-size:.92rem;gap:32px}
+.nav-links a{transition:color .2s ease}
+.nav-links a:hover{color:var(--neon-soft)}
+.nav-icons{gap:12px}
+.nav-icons a{transition:background .2s ease,transform .2s ease}
+.nav-icons a:hover{background:rgba(163,237,120,.12);transform:translateY(-2px)}
+.nav-icons svg{width:24px;height:24px}
+.hero{padding-top:76px;padding-bottom:86px}
+.pill{
+  background:rgba(163,237,120,.12);
+  color:var(--neon-soft);
+  border:1px solid rgba(163,237,120,.26);
+  box-shadow:none;
+  font-size:.88rem;
+  font-weight:700;
+}
+.hero h1{letter-spacing:-1.6px;font-weight:600}
+.hero p.lead{color:#d0dfd4;line-height:1.8;letter-spacing:0}
+.btn{letter-spacing:.25px;text-transform:none}
+.btn-main{
+  padding:17px 26px;
+  box-shadow:0 10px 28px rgba(114,200,94,.2);
+}
+.btn-main .hand{display:none}
+.btn-main:hover{
+  transform:translateY(-3px);
+  box-shadow:0 14px 32px rgba(114,200,94,.3);
+}
+.btn-light,.btn-white{
+  box-shadow:none;
+  border:1px solid rgba(255,255,255,.14);
+}
+.btn-light:hover,.btn-white:hover{box-shadow:none;transform:translateY(-2px)}
+.feature .ico{
+  background:rgba(163,237,120,.1);
+  color:var(--neon-soft);
+  border:1px solid rgba(163,237,120,.18);
+}
+.feature small{font-weight:500;color:var(--muted)}
+section{padding-top:80px;padding-bottom:80px}
+section h2{letter-spacing:-.8px}
+.sub{line-height:1.75}
+.cat{
+  background:linear-gradient(145deg,rgba(16,44,32,.96),rgba(10,34,25,.96));
+  border-color:rgba(199,245,168,.12);
+  border-radius:20px;
+  padding:28px;
+  box-shadow:0 12px 30px rgba(0,0,0,.12);
+  transition:border-color .25s ease,transform .25s ease,box-shadow .25s ease;
+}
+.cat:hover{
+  border-color:rgba(163,237,120,.55);
+  transform:translateY(-6px);
+  box-shadow:0 20px 38px rgba(0,0,0,.2);
+}
+.cat .ico{background:rgba(163,237,120,.12);color:var(--neon-soft)}
+.cat a{color:var(--neon-soft)}
+.cat a:after{content:"  →"}
+.product{
+  background:linear-gradient(145deg,#102c20,#0b2118);
+  border-color:rgba(199,245,168,.1);
+  box-shadow:0 12px 30px rgba(0,0,0,.14);
+  transition:transform .25s ease,border-color .25s ease,box-shadow .25s ease;
+}
+.product:hover{
+  transform:translateY(-5px);
+  border-color:rgba(163,237,120,.42);
+  box-shadow:0 20px 38px rgba(0,0,0,.24);
+}
+.product .thumb{
+  height:172px;
+  background:linear-gradient(135deg,#173e2b,#10291e);
+  font-size:3.4rem;
+}
+.product .body{padding:21px}
+.product h3{line-height:1.4}
+.price{color:var(--neon-soft)}
+.product button{
+  margin-top:10px;
+  transition:transform .2s ease,filter .2s ease,box-shadow .2s ease;
+}
+.product button:hover{filter:brightness(1.06);transform:translateY(-2px);box-shadow:0 8px 18px rgba(163,237,120,.15)}
+.product button.thumb{
+  margin:0;padding:0;border:0;border-radius:0;
+}
+.product button.thumb:hover{filter:none;transform:none;box-shadow:none}
+.product .product-meta{color:var(--muted);font-size:.88rem}
+.admin-section{display:grid;gap:14px}
+.admin-toolbar{display:flex;flex-wrap:wrap;gap:10px}
+.admin-toolbar .modal-primary{width:auto}
+.admin-product{padding:16px;border:1px solid rgba(199,245,168,.14);border-radius:16px;background:rgba(255,255,255,.025)}
+.admin-product h3{margin-bottom:10px}
+.admin-product .modal-form{gap:10px}
+.admin-file{display:grid;gap:6px;color:var(--muted);font-size:.9rem}
+.admin-file input{color:var(--muted)}
+.admin-lessons{display:grid;gap:12px}
+.admin-lesson{padding:14px;border:1px solid rgba(199,245,168,.12);border-radius:14px}
+.admin-lesson h3{font-size:.98rem;margin-bottom:10px}
+.admin-lesson .modal-form{gap:10px}
+.status-note{color:var(--muted);font-size:.86rem}
+.form-error{color:#ffb5a8}
+.pay span{background:rgba(231,244,223,.1);color:#e8f4e9;border:1px solid rgba(199,245,168,.16)}
+footer{background:#05150f}
+.foot{line-height:1.8}
+.foot a:hover{color:var(--neon-soft)}
+.toast{background:var(--neon-soft);box-shadow:0 12px 30px rgba(0,0,0,.3)}
+.reveal-ready .cat,.reveal-ready .product{
+  opacity:0;
+  transform:translateY(18px);
+  transition:opacity .5s ease,transform .5s ease,border-color .25s ease,box-shadow .25s ease;
+}
+.reveal-ready .cat.is-visible,.reveal-ready .product.is-visible{opacity:1;transform:translateY(0)}
+.reveal-ready .cat.is-visible:hover{transform:translateY(-6px)}
+.reveal-ready .product.is-visible:hover{transform:translateY(-5px)}
+@media(max-width:900px){
+  .hero{padding-top:52px}
+}
+@media(max-width:600px){
+  .topbar-inner{padding:12px 18px;min-height:68px}
+  .brand{font-size:1.2rem;gap:8px}
+  .brand-logo{width:38px;height:38px}
+  .nav-icons{gap:2px}
+  .nav-icons a,.nav-icons .nav-action{width:38px;height:38px}
+  .nav-icons svg{width:21px;height:21px}
+  .hero{padding:42px 20px 58px;gap:24px}
+  .hero h1{letter-spacing:-1px}
+  .cta-row{gap:14px}
+  .btn-row{gap:10px}
+  .btn-light,.btn-white{padding:12px 17px}
+  .features{gap:18px}
+  section{padding:58px 20px}
+  .cats,.products{gap:16px}
+  .modal-inner{padding:20px}
+  .variant,.cart-line{align-items:flex-start}
+  .product .thumb{height:160px}
+}
+@media(prefers-reduced-motion:reduce){
+  .reveal-ready .cat,.reveal-ready .product{opacity:1;transform:none}
+}
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="topbar-inner">
+    <a href="#accueil" class="brand"><img class="brand-logo" src="image/WhatsApp%20Image%202026-10-23%20at%2012.34.32.jpeg" alt="" width="48" height="48">PMS-<span>Digital</span></a>
+    <nav class="nav-links" aria-label="Navigation principale">
+      <a href="#categories">Catégories</a>
+      <a href="#boutique">Boutique</a>
+      <a href="#paiement">Paiement</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <div class="nav-icons">
+      <a href="#accueil" aria-label="Accueil"><svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 100 20 10 10 0 000-20zm0 4.2l5.2 4.3V17h-3.3v-3.7h-3.8V17H6.8v-6.5L12 6.2z"/></svg></a>
+      <button class="nav-action" id="cartButton" type="button" aria-label="Mon panier" style="position:relative"><svg viewBox="0 0 24 24"><path d="M3 3h2.4l.5 2H21l-2.2 8.2a2 2 0 01-1.9 1.5H8.4l.3 1.3H18v2H7.3L4.9 5H3V3zm6.5 16a1.5 1.5 0 110 3 1.5 1.5 0 010-3zm8 0a1.5 1.5 0 110 3 1.5 1.5 0 010-3z"/></svg><span class="cart-count" id="cartCount">0</span></button>
+      <button class="nav-action" id="accountButton" type="button" aria-label="Mon compte"><svg viewBox="0 0 24 24"><circle cx="12" cy="7.5" r="4.5"/><path d="M3 22c0-5 4-8 9-8s9 3 9 8z"/></svg></button>
+      <button class="nav-action" id="menuButton" type="button" aria-label="Ouvrir le menu du compte" aria-expanded="false"><svg viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="3" rx="1"/><rect x="2" y="10.5" width="20" height="3" rx="1"/><rect x="2" y="17" width="20" height="3" rx="1"/></svg></button>
+    </div>
+  </div>
+  <div class="menu-popover" id="accountMenu" hidden>
+    <button type="button" data-action="account">Mon compte et mes achats</button>
+    <button type="button" data-action="settings">Réglages : langue, devise, pays</button>
+    <button type="button" data-action="admin" id="adminDashboardButton" hidden>Administration de la boutique</button>
+    <button type="button" data-action="logout" id="logoutButton" hidden>Se déconnecter</button>
+  </div>
+</header>
+
+<main id="accueil">
+  <div class="hero">
+    <div class="copy-col">
+      <span class="pill">⚡ Le numérique à portée de clic !</span>
+      <h1>Vos produits numériques, <em>prêts à télécharger</em></h1>
+      <p class="lead">Livres numériques, modèles de CV, formations vidéo et documents professionnels. Paiement Mobile Money, livraison instantanée. Partout au Sénégal.</p>
+
+      <div class="cta-row">
+        <a href="#boutique" class="btn btn-main"><span class="hand" aria-hidden="true">👉</span>Découvrir la boutique</a>
+        <div class="btn-row" id="connexion">
+          <button type="button" class="btn btn-light" data-auth="login">Se connecter</button>
+          <button type="button" class="btn btn-white" data-auth="register">Créer un compte</button>
+        </div>
+        <div class="btn-row" id="actionsConnecte" hidden>
+          <button type="button" class="btn btn-white" id="shareSiteButton">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="m8.7 10.7 6.6-4.4m-6.6 7 6.6 4.4"/></svg>
+            Partager le site
+          </button>
+        </div>
+      </div>
+
+      <div class="features">
+        <div class="feature">
+          <span class="ico"><svg viewBox="0 0 24 24"><path d="M13 2L4 14h7l-1 8 9-12h-7z"/></svg></span>
+          <div><b>Instantané</b><small>Téléchargement immédiat</small></div>
+        </div>
+        <div class="feature">
+          <span class="ico"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span>
+          <div><b>24/7</b><small>Accès à vos achats</small></div>
+        </div>
+        <div class="feature">
+          <span class="ico"><svg viewBox="0 0 24 24"><path d="M12 3l7 3v5c0 5-3 8-7 10-4-2-7-5-7-10V6z"/><rect x="9" y="11" width="6" height="5" rx="1"/><path d="M10 11V9a2 2 0 014 0v2"/></svg></span>
+          <div><b>Sécurisé</b><small>Paiement protégé</small></div>
+        </div>
+        <div class="feature">
+          <span class="ico"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M8 12.5l3 3 5-6"/></svg></span>
+          <div><b>Qualité</b><small>Produits vérifiés</small></div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <section id="categories">
+    <h2>Tout ce qu'il faut pour <em>apprendre et réussir</em></h2>
+    <p class="sub">Choisissez une catégorie et téléchargez votre produit dès le paiement confirmé.</p>
+    <div class="cats">
+      <article class="cat"><span class="ico">📚</span><h3>Livres PDF</h3><p>Guides et livres numériques à lire sur téléphone, tablette ou ordinateur.</p><a href="#boutique">Voir les livres</a></article>
+      <article class="cat"><span class="ico">📄</span><h3>Modèles de CV</h3><p>CV et lettres de motivation professionnels, faciles à modifier.</p><a href="#boutique">Voir les modèles</a></article>
+      <article class="cat"><span class="ico">🎬</span><h3>Formations vidéo</h3><p>Tutoriels complets à suivre à votre rythme, où que vous soyez.</p><a href="#boutique">Voir les formations</a></article>
+      <article class="cat"><span class="ico">💼</span><h3>Documents pro</h3><p>Contrats, factures, devis et autres documents prêts à l'emploi.</p><a href="#boutique">Voir les documents</a></article>
+    </div>
+  </section>
+
+  <section id="boutique">
+    <h2>La <em>boutique</em></h2>
+    <p class="sub">Plus de 100 produits numériques et formations à découvrir. Recherchez un produit ou sélectionnez une fiche pour consulter son contenu.</p>
+    <label class="sr-only" for="productSearch">Rechercher un produit</label>
+    <input class="product-search" id="productSearch" type="search" placeholder="Rechercher un produit…" autocomplete="off">
+    <p class="product-search-status" id="productSearchStatus" aria-live="polite"></p>
+    <div class="products" id="productGrid"></div>
+  </section>
+
+  <section id="paiement">
+    <h2>Payez comme <em>vous voulez</em></h2>
+    <p class="sub">Paiement sécurisé, confirmation immédiate, accès à vos achats 24h/24.</p>
+    <div class="pay">
+      <span>Orange Money</span><span>Wave</span><span>Yas Money</span><span>Carte bancaire</span>
+    </div>
+  </section>
+  <section class="catalog-stats" aria-labelledby="catalogStatsTitle">
+    <div class="catalog-stats-card">
+      <h2 id="catalogStatsTitle">La boutique en <em>un coup d’œil</em></h2>
+      <p>Répartition des produits disponibles par catégorie.</p>
+      <div class="catalog-chart" id="catalogChart" aria-live="polite">
+        <p>Chargement des statistiques…</p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer id="contact">
+  <div class="foot">
+    <div><b>PMS-Digital</b>Le numérique à portée de clic !<br>Partout au Sénégal.</div>
+    <div><b>Contact</b><a href="mailto:digitalpms221@gmail.com">digitalpms221@gmail.com</a><br><a href="tel:+221768642951">+221 76 864 29 51</a><br><a href="tel:+221782943614">+221 78 294 36 14</a><address>Adresse : Mboro, Thiès, Sénégal</address></div>
+    <div><b>Liens</b><a href="#categories">Catégories</a><br><a href="#boutique">Boutique</a><br><a href="#paiement">Paiement</a></div>
+    <div>
+      <b>Suivez-nous</b>
+      <div class="social-links" aria-label="Réseaux sociaux">
+        <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13.5 21v-8h2.7l.4-3.1h-3.1v-2c0-.9.3-1.6 1.6-1.6h1.7V3.5c-.3 0-1.3-.1-2.5-.1-2.5 0-4.2 1.5-4.2 4.3v2.2H7.3V13h2.8v8h3.4z"/></svg>
+        </a>
+        <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7.5 2h9A5.5 5.5 0 0122 7.5v9a5.5 5.5 0 01-5.5 5.5h-9A5.5 5.5 0 012 16.5v-9A5.5 5.5 0 017.5 2zm0 2A3.5 3.5 0 004 7.5v9A3.5 3.5 0 007.5 20h9a3.5 3.5 0 003.5-3.5v-9A3.5 3.5 0 0016.5 4h-9zM12 7a5 5 0 110 10 5 5 0 010-10zm0 2a3 3 0 100 6 3 3 0 000-6zm5.2-3.5a1.2 1.2 0 110 2.4 1.2 1.2 0 010-2.4z"/></svg>
+        </a>
+        <a href="https://www.youtube.com/" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M23.5 6.2a3 3 0 00-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5A3 3 0 00.5 6.2 31 31 0 000 12a31 31 0 00.5 5.8 3 3 0 002.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 002.1-2.1A31 31 0 0024 12a31 31 0 00-.5-5.8zM9.6 15.6V8.4l6.3 3.6-6.3 3.6z"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+  <p class="copy">© 2026 PMS-Digital. Tous droits réservés.</p>
+</footer>
+
+<a class="whatsapp-button" href="https://wa.me/221768642951?text=Bonjour%20PMS-Digital%2C%20je%20souhaite%20avoir%20des%20informations." target="_blank" rel="noopener noreferrer" aria-label="Envoyer un message WhatsApp au +221 76 864 29 51">
+  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12.04 2a9.9 9.9 0 00-8.48 15.02L2.2 22l5.1-1.34A9.94 9.94 0 1012.04 2zm0 18.1a8.15 8.15 0 01-4.15-1.13l-.3-.18-3.02.8.81-2.95-.2-.3a8.16 8.16 0 111.54 1.65l-.29-.17zm4.48-6.12c-.25-.13-1.47-.73-1.7-.81-.23-.08-.4-.13-.57.13-.17.25-.65.81-.8.98-.15.17-.3.19-.55.06-.25-.13-1.07-.4-2.04-1.27-.76-.67-1.27-1.5-1.42-1.75-.15-.25-.02-.39.11-.52.12-.11.25-.3.38-.44.13-.15.17-.25.25-.42.08-.17.04-.32-.02-.45-.06-.13-.57-1.36-.78-1.86-.2-.48-.41-.42-.57-.43h-.49c-.17 0-.45.06-.68.32-.23.25-.88.86-.88 2.1s.9 2.44 1.03 2.61c.13.17 1.77 2.71 4.29 3.8.6.26 1.07.41 1.44.52.6.19 1.14.16 1.57.1.48-.07 1.47-.6 1.68-1.18.2-.58.2-1.08.14-1.18-.06-.1-.23-.16-.48-.29z"/></svg>
+  <span>Écrivez-nous sur WhatsApp</span>
+</a>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<dialog class="modal" id="appDialog" aria-labelledby="dialogTitle">
+  <div class="modal-inner">
+    <div class="modal-head">
+      <h2 id="dialogTitle"></h2>
+      <button class="modal-close" type="button" aria-label="Fermer">×</button>
+    </div>
+    <div id="dialogContent"></div>
+  </div>
+</dialog>
+
+<script>
+let products = [];
+let currentUser = null;
+let selectedFamilies = null;
+let panier = JSON.parse(localStorage.getItem('pms-cart') || '[]');
+let preferences = JSON.parse(localStorage.getItem('pms-preferences') || '{"language":"fr","currency":"XOF","country":"SN"}');
+const grid = document.getElementById('productGrid');
+const count = document.getElementById('cartCount');
+const toast = document.getElementById('toast');
+const dialog = document.getElementById('appDialog');
+const dialogTitle = document.getElementById('dialogTitle');
+const dialogContent = document.getElementById('dialogContent');
+const accountMenu = document.getElementById('accountMenu');
+const adminDashboardButton = document.getElementById('adminDashboardButton');
+const logoutButton = document.getElementById('logoutButton');
+const authActions = document.getElementById('connexion');
+const connectedActions = document.getElementById('actionsConnecte');
+const productSearch = document.getElementById('productSearch');
+const productSearchStatus = document.getElementById('productSearchStatus');
+const catalogChart = document.getElementById('catalogChart');
+const updateAccountMenu = () => {
+  logoutButton.hidden = !currentUser;
+  adminDashboardButton.hidden = currentUser?.role !== 'admin';
+  authActions.hidden = Boolean(currentUser);
+  connectedActions.hidden = !currentUser;
+};
+const fmt = n => `${new Intl.NumberFormat('fr-FR').format(n)} FCFA`;
+const escapeHTML = value => String(value).replace(/[&<>"']/g, char => ({
+  '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;'
+}[char]));
+const showToast = message => {
+  toast.textContent = message;
+  toast.classList.add('show');
+  clearTimeout(toast._t);
+  toast._t = setTimeout(() => toast.classList.remove('show'), 2800);
+};
+const openDialog = (title, content) => {
+  dialogTitle.textContent = title;
+  dialogContent.innerHTML = content;
+  if (!dialog.open) dialog.showModal();
+};
+const api = async (url, options = {}) => {
+  const response = await fetch(url, {
+    credentials: 'same-origin',
+    ...options,
+    headers: { ...(options.body && !(options.body instanceof FormData) ? { 'Content-Type': 'application/json' } : {}), ...options.headers }
+  });
+  const result = await response.json();
+  if (!response.ok) throw new Error(result.error || 'Une erreur est survenue.');
+  return result;
+};
+const saveCart = () => {
+  panier = [...new Set(panier.filter(id => products.some(product => product.id === id)))];
+  localStorage.setItem('pms-cart', JSON.stringify(panier));
+  count.textContent = panier.length;
+};
+const categoryFamilies = {
+  books: ['books'],
+  cv: ['cv', 'letters'],
+  training: ['training'],
+  documents: ['documents']
+};
+const showFamily = family => {
+  const families = categoryFamilies[family] || [family];
+  if (!products.some(product => families.includes(product.family))) {
+    showToast('Aucun produit disponible dans cette catégorie pour le moment.');
+    return;
+  }
+  selectedFamilies = families;
+  productSearch.value = '';
+  renderProducts();
+  document.getElementById('boutique').scrollIntoView({ behavior: 'smooth' });
+};
+const renderProducts = () => {
+  const normalizeSearch = value => String(value).normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLocaleLowerCase('fr');
+  const query = normalizeSearch(productSearch.value.trim());
+  const filteredProducts = products.filter(product => (!selectedFamilies || selectedFamilies.includes(product.family)) && normalizeSearch([
+    product.name, product.description, product.family, product.isCourse ? 'formation vidéo leçons' : 'produit numérique'
+  ].join(' ')).includes(query));
+  productSearchStatus.textContent = query
+    ? `${filteredProducts.length} produit${filteredProducts.length === 1 ? '' : 's'} trouvé${filteredProducts.length === 1 ? '' : 's'}`
+    : `${filteredProducts.length} produits affichés`;
+  grid.innerHTML = filteredProducts.length ? filteredProducts.map(product => `
+    <article class="product">
+      <button type="button" class="thumb" data-open-product="${escapeHTML(product.id)}" aria-label="Détails : ${escapeHTML(product.name)}">
+        ${product.thumbnailUrl ? `<img src="${escapeHTML(product.thumbnailUrl)}" alt="" loading="lazy">` : ''}
+        <span class="thumb-icon" aria-hidden="true">${escapeHTML(product.icon)}</span>
+      </button>
+      <div class="body">
+        <h3>${escapeHTML(product.name)}</h3>
+        <span class="price">${fmt(product.price)}</span>
+        <span class="product-meta">${product.isCourse ? `${product.lessonCount} leçons · formation vidéo` : 'Produit numérique'}</span>
+        <button type="button" data-open-product="${escapeHTML(product.id)}">Voir le produit</button>
+      </div>
+    </article>`).join('') : '<p class="product-search-empty">Aucun produit ne correspond à votre recherche.</p>';
+};
+const renderCatalogStats = () => {
+  const categories = [
+    { label: 'Livres PDF', families: ['books'] },
+    { label: 'CV et lettres', families: ['cv', 'letters'] },
+    { label: 'Formations', families: ['training'] },
+    { label: 'Documents pro', families: ['documents'] }
+  ].map(category => ({
+    ...category,
+    count: products.filter(product => category.families.includes(product.family)).length
+  }));
+  const maxCount = Math.max(1, ...categories.map(category => category.count));
+  catalogChart.innerHTML = categories.map(category => {
+    const width = category.count ? Math.max(5, category.count / maxCount * 100) : 0;
+    return `<div class="catalog-chart-row">
+      <span class="catalog-chart-label">${category.label}</span>
+      <div class="catalog-chart-track" role="progressbar" aria-label="${category.label}" aria-valuemin="0" aria-valuemax="${maxCount}" aria-valuenow="${category.count}">
+        <div class="catalog-chart-bar" style="--bar-width:${width}%"></div>
+      </div>
+      <span class="catalog-chart-value">${category.count}</span>
+    </div>`;
+  }).join('');
+};
+const openProduct = id => {
+  const product = products.find(item => item.id === id);
+  if (!product) return showToast('Ce produit n’est plus disponible.');
+  const related = products.filter(item => item.family === product.family && item.price === product.price && item.id !== product.id);
+  const ready = product.isCourse ? product.lessonCount >= 15 && product.lessonCount <= 20 && product.readyLessons === product.lessonCount : product.hasDeliveryFile;
+  const status = ready ? '' : product.isCourse
+    ? `<p class="status-note">Formation en préparation : ${product.readyLessons}/${product.lessonCount} leçons vidéo prêtes. Vous pourrez l’acheter une fois le contenu publié.</p>`
+    : '<p class="status-note">Produit en préparation : le fichier à télécharger n’est pas encore publié.</p>';
+  openDialog(product.name, `
+    ${product.thumbnailUrl ? `<img src="${escapeHTML(product.thumbnailUrl)}" alt="Miniature de ${escapeHTML(product.name)}" style="width:100%;max-height:240px;object-fit:cover;border-radius:16px;margin-bottom:16px">` : ''}
+    <p class="modal-copy">${escapeHTML(product.description || 'Produit numérique disponible après confirmation du paiement.')}</p>
+    <p class="modal-total"><span>${product.isCourse ? `${product.lessonCount} leçons vidéo` : 'Prix'}</span><span>${fmt(product.price)}</span></p>
+    ${status}
+    ${product.isCourse && currentUser ? `<button type="button" class="modal-primary" data-open-course="${escapeHTML(product.id)}">Accéder à ma formation</button>` : ''}
+    <button type="button" class="modal-primary" data-add-product="${escapeHTML(product.id)}" ${ready ? '' : 'disabled'}>${panier.includes(product.id) ? 'Déjà dans le panier' : 'Ajouter au panier'}</button>
+    ${related.length ? `<h3 style="margin:22px 0 10px">Dans la même famille · même prix</h3><div class="variant-list">${related.map(item => `
+      <article class="variant">
+        <div><h3>${escapeHTML(item.icon)} ${escapeHTML(item.name)}</h3><p>${fmt(item.price)}</p></div>
+        <button type="button" data-open-product="${escapeHTML(item.id)}">Voir</button>
+      </article>`).join('')}</div>` : ''}`);
+};
+const openCart = () => {
+  const items = panier.map(id => products.find(product => product.id === id)).filter(Boolean);
+  const total = items.reduce((sum, item) => sum + item.price, 0);
+  openDialog('Mon panier', items.length ? `
+    <div class="cart-list">${items.map(item => `
+      <div class="cart-line">
+        <div><strong>${escapeHTML(item.icon)} ${escapeHTML(item.name)}</strong><p>${fmt(item.price)}</p></div>
+        <button type="button" data-remove-product="${escapeHTML(item.id)}">Retirer</button>
+      </div>`).join('')}</div>
+    <p class="modal-total"><span>Total</span><span>${fmt(total)}</span></p>
+    <p class="modal-copy">Le règlement PayDunya sera toujours effectué en FCFA (XOF).</p>
+    <button class="modal-primary" type="button" data-checkout>Continuer vers le paiement</button>` : '<p class="modal-copy">Votre panier est vide. Choisissez un produit pour commencer.</p>');
+};
+const openAuth = mode => {
+  const register = mode === 'register';
+  openDialog(register ? 'Créer un compte' : 'Se connecter', `
+    <p class="modal-copy">${register ? 'Créez un compte pour retrouver vos achats et téléchargements.' : 'Connectez-vous pour accéder à vos achats et téléchargements.'}</p>
+    <form class="modal-form" data-auth-form="${register ? 'register' : 'login'}">
+      <label>Adresse e-mail<input name="email" type="email" autocomplete="email" required></label>
+      <label>Mot de passe<span class="password-field"><input name="password" type="password" minlength="${register ? '8' : '1'}" autocomplete="${register ? 'new-password' : 'current-password'}" required><button class="password-toggle" type="button" data-toggle-password aria-label="Afficher le mot de passe" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg></button></span>${register ? '<small>8 caractères minimum.</small>' : ''}</label>
+      ${register ? '<label>Confirmer le mot de passe<span class="password-field"><input name="passwordConfirmation" type="password" minlength="8" autocomplete="new-password" required><button class="password-toggle" type="button" data-toggle-password aria-label="Afficher le mot de passe" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg></button></span></label>' : ''}
+      <button class="btn" type="submit">${register ? 'Créer mon compte' : 'Se connecter'}</button>
+      <p class="form-error" role="alert"></p>
+    </form>
+    <button class="modal-link" type="button" data-auth-switch="${register ? 'login' : 'register'}">${register ? 'J’ai déjà un compte' : 'Créer un compte'}</button>`);
+};
+const getShareUrl = () => {
+  const siteUrl = new URL(window.location.href);
+  siteUrl.hash = '';
+  return siteUrl.href;
+};
+const copySiteLink = async (message = 'Lien du site copié.') => {
+  try {
+    if (navigator.clipboard?.writeText) {
+      await navigator.clipboard.writeText(getShareUrl());
+      showToast(message);
+      return;
+    }
+  } catch {}
+  window.prompt('Copiez le lien du site :', getShareUrl());
+};
+const shareWithNativeApps = async () => {
+  if (!navigator.share) return copySiteLink();
+  try {
+    await navigator.share({ title: document.title, text: 'Découvrez PMS-Digital', url: getShareUrl() });
+  } catch (error) {
+    if (error.name !== 'AbortError') showToast('Le partage a échoué.');
+  }
+};
+const shareSite = () => {
+  const url = getShareUrl();
+  const shareText = `Découvrez PMS-Digital : ${url}`;
+  const whatsappUrl = `https://wa.me/?text=${encodeURIComponent(shareText)}`;
+  const facebookUrl = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}`;
+  const telegramUrl = `https://t.me/share/url?url=${encodeURIComponent(url)}&text=${encodeURIComponent('Découvrez PMS-Digital')}`;
+  const emailUrl = `mailto:?subject=${encodeURIComponent('Découvrez PMS-Digital')}&body=${encodeURIComponent(shareText)}`;
+  openDialog('Partager le site', `
+    <p class="modal-copy">Choisissez où partager le lien de PMS-Digital.</p>
+    <div class="share-grid">
+      <a class="share-option" href="${whatsappUrl}" target="_blank" rel="noopener noreferrer"><span class="share-icon" style="--share-accent:#25d366"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 11.5a8 8 0 0 1-11.8 7L4 20l1.5-4A8 8 0 1 1 20 11.5Z"/><path d="M9 8.5c.3 2 2.5 4.2 4.5 4.5l1-1 1.8.8c.2.1.3.3.2.5-.3 1-1.2 1.7-2.3 1.7-3.5-.2-7.5-4.2-7.7-7.7 0-1.1.7-2 1.7-2.3.2-.1.4 0 .5.2l.8 1.8-1 1.5Z"/></svg></span><span>WhatsApp</span></a>
+      <a class="share-option" href="${facebookUrl}" target="_blank" rel="noopener noreferrer"><span class="share-icon" style="--share-accent:#1877f2"><span class="share-letter">f</span></span><span>Facebook</span></a>
+      <a class="share-option" href="${telegramUrl}" target="_blank" rel="noopener noreferrer"><span class="share-icon" style="--share-accent:#229ed9"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m3 11.5 18-7.5-5.8 16-3.1-6.1L3 11.5Z"/><path d="m12.1 13.9 5-5.1"/></svg></span><span>Telegram</span></a>
+      <a class="share-option" href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer" data-share-instagram><span class="share-icon" style="--share-accent:#c13584"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><path d="M17.5 6.5h.01"/></svg></span><span>Instagram · copier le lien</span></a>
+      <a class="share-option" href="${emailUrl}"><span class="share-icon" style="--share-accent:#657b6a"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m4 7 8 6 8-6"/></svg></span><span>E-mail</span></a>
+    </div>
+    <p class="share-note">Instagram ne permet pas de préremplir un lien depuis un site : le lien sera copié avant d’ouvrir l’application.</p>
+    <div class="share-actions">
+      <button class="share-action" type="button" data-share-native>Autres applications</button>
+      <button class="share-action" type="button" data-copy-site>Copier le lien</button>
+    </div>`);
+};
+const openAccount = async () => {
+  if (!currentUser) return openAuth('login');
+  openDialog('Mon compte', `<p class="modal-copy">Connecté avec <strong>${escapeHTML(currentUser.email)}</strong></p><div class="orders-list" id="ordersList">Chargement de vos achats…</div>`);
+  try {
+    const { orders } = await api('/api/orders');
+    const list = document.getElementById('ordersList');
+    if (!list) return;
+    list.innerHTML = orders.length ? orders.map(order => `
+      <article class="order-card">
+        <div><h3>Commande ${escapeHTML(order.id.slice(0, 8))}</h3><p>${order.status === 'paid' ? 'Payée' : 'En attente de paiement'} · ${fmt(order.total)}</p>
+          ${order.status === 'paid' ? order.products.map(item => item.isCourse
+            ? `<button type="button" class="modal-link" data-open-course="${escapeHTML(item.id)}">${escapeHTML(item.name)} — Accéder à la formation</button>`
+            : `<a class="modal-link" href="/api/orders/${encodeURIComponent(order.id)}/download/${encodeURIComponent(item.id)}">${escapeHTML(item.name)} — Télécharger</a>`).join('') : ''}
+        </div>
+      </article>`).join('') : '<p class="modal-copy">Aucun achat pour le moment.</p>';
+  } catch (error) {
+    const list = document.getElementById('ordersList');
+    if (list) list.textContent = error.message;
+  }
+};
+const openSettings = () => {
+  const prefs = currentUser || preferences;
+  openDialog('Réglages', `
+    <p class="modal-copy">Choisissez votre langue, votre devise préférée et votre pays. Les paiements de la boutique restent en FCFA (XOF).</p>
+    <form class="modal-form" data-settings-form>
+      <label>Langue<select name="language"><option value="fr">Français</option><option value="en">English</option></select></label>
+      <label>Devise préférée<select name="currency"><option value="XOF">Franc CFA (XOF)</option><option value="EUR">Euro (EUR)</option><option value="USD">Dollar américain (USD)</option></select></label>
+      <label>Pays<select name="country"><option value="SN">Sénégal</option><option value="CI">Côte d’Ivoire</option><option value="ML">Mali</option><option value="BF">Burkina Faso</option><option value="BJ">Bénin</option><option value="TG">Togo</option><option value="FR">France</option></select></label>
+      <button class="btn" type="submit">Enregistrer les réglages</button>
+      <p class="form-error" role="alert"></p>
+    </form>`);
+  for (const key of ['language', 'currency', 'country']) {
+    const option = dialogContent.querySelector(`[name="${key}"] option[value="${prefs[key]}"]`);
+    if (option) option.selected = true;
+  }
+};
+const loadData = async () => {
+  try {
+    const result = await api('/api/products');
+    products = result.products;
+    renderProducts();
+    renderCatalogStats();
+    saveCart();
+  } catch {
+    showToast('La boutique n’a pas pu charger son catalogue. Rechargez la page.');
+  }
+  try {
+    currentUser = (await api('/api/session')).user;
+  } catch {
+    currentUser = null;
+  }
+  updateAccountMenu();
+};
+
+productSearch.addEventListener('input', () => {
+  selectedFamilies = null;
+  renderProducts();
+});
+grid.addEventListener('click', event => {
+  const trigger = event.target.closest('[data-family]');
+  if (trigger) showFamily(trigger.dataset.family);
+});
+document.querySelectorAll('.cat').forEach((category, index) => {
+  const families = ['books', 'cv', 'training', 'documents'];
+  category.querySelector('a').addEventListener('click', event => {
+    event.preventDefault();
+    showFamily(families[index]);
+  });
+});
+document.getElementById('cartButton').addEventListener('click', openCart);
+document.getElementById('accountButton').addEventListener('click', openAccount);
+document.getElementById('shareSiteButton').addEventListener('click', shareSite);
+document.getElementById('menuButton').addEventListener('click', event => {
+  const expanded = event.currentTarget.getAttribute('aria-expanded') === 'true';
+  event.currentTarget.setAttribute('aria-expanded', String(!expanded));
+  accountMenu.hidden = expanded;
+});
+accountMenu.addEventListener('click', async event => {
+  const action = event.target.closest('[data-action]')?.dataset.action;
+  if (!action) return;
+  accountMenu.hidden = true;
+  document.getElementById('menuButton').setAttribute('aria-expanded', 'false');
+  if (action === 'account') return openAccount();
+  if (action === 'settings') return openSettings();
+  if (action === 'logout') {
+    try {
+      await api('/api/logout', { method: 'POST' });
+      currentUser = null;
+      updateAccountMenu();
+      showToast('Vous êtes déconnecté.');
+    } catch (error) {
+      showToast(error.message);
+    }
+  }
+});
+document.querySelectorAll('[data-auth]').forEach(button => button.addEventListener('click', () => openAuth(button.dataset.auth)));
+dialog.querySelector('.modal-close').addEventListener('click', () => dialog.close());
+dialog.addEventListener('click', event => {
+  if (event.target === dialog) dialog.close();
+});
+dialogContent.addEventListener('click', async event => {
+  if (event.target.closest('[data-share-native]')) return shareWithNativeApps();
+  if (event.target.closest('[data-copy-site]')) return copySiteLink();
+  if (event.target.closest('[data-share-instagram]')) {
+    void copySiteLink('Lien copié. Collez-le dans Instagram.');
+    return;
+  }
+  const passwordToggle = event.target.closest('[data-toggle-password]');
+  if (passwordToggle) {
+    const passwordInput = passwordToggle.parentElement.querySelector('input');
+    const revealPassword = passwordInput.type === 'password';
+    passwordInput.type = revealPassword ? 'text' : 'password';
+    passwordToggle.setAttribute('aria-label', revealPassword ? 'Masquer le mot de passe' : 'Afficher le mot de passe');
+    passwordToggle.setAttribute('aria-pressed', String(revealPassword));
+    return;
+  }
+  const add = event.target.closest('[data-add-product]');
+  if (add) {
+    const item = produits.find(product => product.id === add.dataset.addProduct);
+    if (item && !panier.includes(item.id)) {
+      panier.push(item.id);
+      saveCart();
+      add.textContent = 'Ajouté';
+      showToast(`Ajouté au panier : ${item.name}`);
+    } else {
+      showToast('Ce produit est déjà dans votre panier.');
+    }
+    return;
+  }
+  const remove = event.target.closest('[data-remove-product]');
+  if (remove) {
+    panier = panier.filter(id => id !== remove.dataset.removeProduct);
+    saveCart();
+    return openCart();
+  }
+  if (event.target.closest('[data-checkout]')) {
+    if (!currentUser) return openAuth('login');
+    const button = event.target.closest('[data-checkout]');
+    button.disabled = true;
+    button.textContent = 'Connexion à PayDunya…';
+    try {
+      const { checkoutUrl } = await api('/api/checkout', { method: 'POST', body: JSON.stringify({ productIds: panier }) });
+      window.location.assign(checkoutUrl);
+    } catch (error) {
+      button.disabled = false;
+      button.textContent = 'Continuer vers le paiement';
+      showToast(error.message);
+    }
+    return;
+  }
+  const switchAuth = event.target.closest('[data-auth-switch]');
+  if (switchAuth) openAuth(switchAuth.dataset.authSwitch);
+});
+dialogContent.addEventListener('submit', async event => {
+  event.preventDefault();
+  const form = event.target;
+  const errorOutput = form.querySelector('.form-error');
+  const submitButton = form.querySelector('button[type="submit"]');
+  submitButton.disabled = true;
+  if (form.matches('[data-auth-form]')) {
+    const formData = new FormData(form);
+    const mode = form.dataset.authForm;
+    const password = formData.get('password');
+    const passwordConfirmation = formData.get('passwordConfirmation');
+    if (mode === 'register' && password !== passwordConfirmation) {
+      errorOutput.textContent = 'Les mots de passe ne correspondent pas.';
+      submitButton.disabled = false;
+      return;
+    }
+    try {
+      const result = await api(`/api/${mode}`, { method: 'POST', body: JSON.stringify({ email: formData.get('email'), password, passwordConfirmation }) });
+      currentUser = result.user;
+      updateAccountMenu();
+      dialog.close();
+      showToast(mode === 'register' ? 'Compte créé. Bienvenue !' : 'Connexion réussie.');
+    } catch (error) {
+      errorOutput.textContent = error.message;
+      submitButton.disabled = false;
+    }
+    return;
+  }
+  if (form.matches('[data-settings-form]')) {
+    const values = Object.fromEntries(new FormData(form));
+    try {
+      if (currentUser) currentUser = (await api('/api/settings', { method: 'PUT', body: JSON.stringify(values) })).user;
+      preferences = values;
+      localStorage.setItem('pms-preferences', JSON.stringify(values));
+      dialog.close();
+      showToast('Réglages enregistrés.');
+    } catch (error) {
+      errorOutput.textContent = error.message;
+      submitButton.disabled = false;
+    }
+  }
+});
+const paymentParams = new URLSearchParams(location.search);
+let checkPaymentOnReady = false;
+if (paymentParams.get('paiement') === 'retour' && paymentParams.get('order')) {
+  checkPaymentOnReady = true;
+} else if (paymentParams.get('paiement') === 'annule') {
+  showToast('Paiement annulé. Votre panier est conservé.');
+}
+renderProducts();
+saveCart();
+loadData().then(() => {
+  if (checkPaymentOnReady) {
+    const verify = async attempt => {
+      try {
+        const orderId = paymentParams.get('order');
+        const result = await api('/api/payments/confirm', { method: 'POST', body: JSON.stringify({ orderId }) });
+        if (result.status === 'paid') {
+          panier = [];
+          saveCart();
+          history.replaceState({}, '', location.pathname);
+          showToast('Paiement confirmé : vos téléchargements sont disponibles dans Mon compte.');
+          return openAccount();
+        }
+        if (attempt < 5) return setTimeout(() => verify(attempt + 1), 2500);
+        showToast('Paiement en attente de confirmation. Retrouvez la commande dans Mon compte.');
+      } catch (error) {
+        showToast(error.message);
+      }
+    };
+    verify(0);
+  }
+});
+
+if ('IntersectionObserver' in window && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+  const cards = document.querySelectorAll('.cat');
+  document.documentElement.classList.add('reveal-ready');
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting) return;
+      entry.target.classList.add('is-visible');
+      observer.unobserve(entry.target);
+    });
+  }, { threshold: 0.12 });
+  cards.forEach(card => observer.observe(card));
+}
+</script>
+</body>
+</html>
